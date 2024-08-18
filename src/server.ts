@@ -8,15 +8,9 @@ import cors from 'cors';
 const app = express();
 app.use(express.json());
 
-// Aplica várias proteções de segurança padrão
 app.use(helmet());
 
-app.use(cors({
-  origin: 'http://localhost:4200', // Permite apenas o frontend Angular
-  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Permite os métodos HTTP que você usa
-  allowedHeaders: ['Content-Type'], // Permite os cabeçalhos que você utiliza
-}));
-
+app.use(cors());
 
 initializeDb().then((db) => {
   app.use((req, res, next) => {
