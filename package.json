@@ -1,4 +1,13 @@
 {
+  "name": "meals",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.ts",
+  "scripts": {
+    "dev": "npx ts-node src/server.ts",
+    "build": "npx tsc -p .",
+    "start": "node server.ts"
+  },
   "dependencies": {
     "@types/cors": "^2.8.17",
     "@types/express": "^4.17.21",
