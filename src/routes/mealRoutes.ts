@@ -3,7 +3,7 @@ import { createMeal, getMeals, getMeal, updateMeal, deleteMeal } from '../contro
 
 const router = express.Router();
 
-router.post('/meals', createMeal);
+router.post('/mealsCreate', createMeal);
 router.get('/meals', getMeals);
 router.get('/meals/:id', getMeal);
 router.put('/meals/:id', updateMeal);

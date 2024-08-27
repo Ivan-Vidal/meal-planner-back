@@ -1,0 +1,166 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Meals API",
+        "description": "API for managing meals",
+        "version": "1.0.0",
+        "contact": {
+            "email": "ivanvidal.dev@gmail.com"
+        }
+    },
+    "servers": [
+        {
+            "url": "http://localhost:3000/v1",
+            "description": "Local server"
+        },
+        {
+            "url": "https://meal-planner-back-g46s.onrender.com/v1",
+            "description": "Production server"
+        }
+    ],
+    "paths": {
+       
+        "/meals": {
+            "get": {
+                "summary": "Get all meals",
+                "operationId": "getMeals",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Meal"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/meals/{id}": {
+            "get": {
+                "summary": "Get a meal",
+                "operationId": "getMeal",   
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Meal"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "summary": "Update a meal",
+                "operationId": "updateMeal",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Meal"
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Delete a meal",
+                "operationId": "deleteMeal",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ]
+            }
+        },
+        "/mealsCreate": {
+            "post": {
+                "summary": "Create a meal",
+                "operationId": "createMeal",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Meal"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Meal"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Meal": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer"
+                    },
+                    "day": {
+                        "type": "string"
+                    },
+                    "mealType": {
+                        "type": "string"
+                    },
+                    "recipes": {
+                        "type": "string"
+                    },
+                    "portions": {
+                        "type": "integer"
+                    },
+                    "notes": {
+                        "type": "string"
+                    }
+                }
+            }
+        }
+    }
+}
