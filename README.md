@@ -15,6 +15,11 @@ Este é um aplicativo para gerenciamento de planos de refeições semanais. Ele 
 - **Banco de Dados**: SQLite
 - **Framework para rotas**: Express
 
+
+## Documentação
+
+Acesse a documentação da API clicando [aqui](https://meal-planner-back-g46s.onrender.com/api-docs/)
+
 ## Instalação
 
 ### Pré-requisitos
